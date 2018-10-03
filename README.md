@@ -36,6 +36,17 @@ gulp.task('default', function () {
 });
 ```
 
+For gulp 4 you need to pass allowEmpty: true option to prevent it raising an error if the file or directory does not exist.
+```js
+var gulp = require('gulp');
+var clean = require('gulp-clean');
+
+gulp.task('default', function () {
+	return gulp.src('app/tmp', {allowEmpty: true, read: false})
+		.pipe(clean());
+});
+```
+
 ##### For safety files and folders outside the current working directory can be removed only with option force set to true.
 
 Clean as a dependency:
